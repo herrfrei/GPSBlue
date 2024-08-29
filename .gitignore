@@ -4,7 +4,6 @@
 *.exe.mdb
 *.htm
 *.iml
-*.jar
 *.log
 *.tif
 *.zip
