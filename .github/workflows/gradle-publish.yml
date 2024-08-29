@@ -37,9 +37,6 @@ jobs:
       with:
         gradle-version: "5.6.4" # Quotes required to prevent YAML converting to number
     
-    - name: Recreate wrapper
-      run: gradle wrapper
-      
     - name: Build with Gradle
       run: ./gradlew build
 
