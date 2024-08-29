@@ -36,9 +36,14 @@ jobs:
       uses: gradle/actions/setup-gradle@v4
       with:
         gradle-version: "5.6.4" # Quotes required to prevent YAML converting to number
-    
+        validate-wrappers: false
+
+    - name: Clean cache
+      run: ./gradlew cleanBuildCache
+      
     - name: Build with Gradle
-      run: ./gradlew build
+    #  run: ./gradlew build
+      run: gradle --project-dir app build
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
