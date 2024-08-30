@@ -53,7 +53,10 @@ jobs:
         with:
           gradle-executable: /opt/gradle/gradle-5.6.4/bin/gradle
           arguments: --project-dir app build
-
+        
+      - name: Find package
+        run: find . -name *.apk
+        
       # Upload Artifact Build
       # Noted For Output [main_project_module]/build/outputs/apk/debug/
       - name: Upload APK Debug - ${{ env.repository_name }}
