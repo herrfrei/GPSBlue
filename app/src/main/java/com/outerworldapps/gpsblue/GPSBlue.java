@@ -117,6 +117,25 @@ public class GPSBlue extends Activity implements ServiceConnection {
         } else {
             setContentView (new AgreeView (this));
         }
+		// check permissions
+		checkPermissions();
+    }
+	
+	private static String[] PERMISSIONS_LOCATION = {
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.BLUETOOTH_CONNECT,
+    };
+	
+	private void checkPermissions(){
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS_LOCATION,
+                    1
+            );
+        }
     }
 
     public void hasAgreed ()
