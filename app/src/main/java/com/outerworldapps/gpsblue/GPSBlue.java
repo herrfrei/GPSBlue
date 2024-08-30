@@ -123,11 +123,11 @@ public class GPSBlue extends Activity implements ServiceConnection {
 	
 	private static String[] PERMISSIONS_LOCATION = {
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.BLUETOOTH_CONNECT,
+            Manifest.permission.BLUETOOTH,
     };
 	
 	private void checkPermissions(){
-        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT);
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH);
         if (permission != PackageManager.PERMISSION_GRANTED) {
             // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
